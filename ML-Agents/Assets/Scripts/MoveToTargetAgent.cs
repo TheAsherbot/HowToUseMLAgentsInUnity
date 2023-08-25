@@ -32,12 +32,13 @@ public class MoveToTargetAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
+        Debug.Log(actions.ContinuousActions.Length);
         float moveX = actions.ContinuousActions[0];
         float moveY = actions.ContinuousActions[1];
 
         float movementSpeed = 5f;
 
-        transform.localPosition += new Vector3(moveX, moveY) * Time.deltaTime * movementSpeed;
+        transform.position += new Vector3(moveX, moveY) * Time.deltaTime * movementSpeed;
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
